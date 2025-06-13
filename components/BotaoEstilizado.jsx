@@ -1,11 +1,11 @@
 "use client";
 
-const BotaoEstilizado = ({ titulo, estiloContainer, handleClick }) => {
+const BotaoEstilizado = ({ titulo, btnType, estiloContainer, handleClick }) => {
   return (
     <>
       <button
         disabled={false}
-        type={"button"}
+        type={btnType || "button"}
         className={`custom-btn ${estiloContainer}`}
         onClick={handleClick}
       >
