@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BotaoEstilizado } from ".";
 
 const Hero = () => {
@@ -17,10 +18,15 @@ const Hero = () => {
           reserva descomplicado.
         </p>
         <BotaoEstilizado
-          titulo="Encontrar modelos disponíveis"
+          titulo="Encontrar modelos"
           estiloContainer="bg-primary-blue text-white rounded-full mt-10"
           handleClick={handleScroll}
         />
+      </div>
+      <div className="hero__image-container">
+        <div className="hero__image">
+          <Image src="" />
+        </div>
       </div>
     </div>
   );
