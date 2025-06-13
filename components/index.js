@@ -1,3 +1,4 @@
+import BotaoEstilizado from "./BotaoEstilizado";
 import Hero from "./Hero";
 
-export { Hero };
+export { BotaoEstilizado, Hero };
