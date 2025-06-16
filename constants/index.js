@@ -1,4 +1,4 @@
-export const marcas = [
+export const fabricantes = [
   "Acura",
   "Alfa Romeo",
   "Aston Martin",
