@@ -1,4 +1,9 @@
-import { BarraDePesquisa, FiltroCustomizado, Hero } from "@/components";
+import {
+  BarraDePesquisa,
+  CardCarro,
+  FiltroCustomizado,
+  Hero,
+} from "@/components";
 import { fetchCarros } from "@/utils";
 
 export default async function Home() {
