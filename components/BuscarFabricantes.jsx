@@ -27,7 +27,7 @@ const BuscarFabricantes = ({ fabricante, setFabricante }) => {
 
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox value={fabricante} onChange={setFabricante}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px] ">
             <Image
