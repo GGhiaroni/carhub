@@ -1,4 +1,4 @@
-import { Hero } from "@/components";
+import { BarraDePesquisa, FiltroCustomizado, Hero } from "@/components";
 
 export default function Home() {
   return (
@@ -10,8 +10,11 @@ export default function Home() {
           <p>Explore os carros que você pode gostar</p>
         </div>
         <div className="home__filters">
-          <SearchBar />
-          <div className="home__filter-container"></div>
+          <BarraDePesquisa />
+          <div className="home__filter-container">
+            <FiltroCustomizado title="tipo de combustível" />
+            <FiltroCustomizado title="ano" />
+          </div>
         </div>
       </div>
     </main>
