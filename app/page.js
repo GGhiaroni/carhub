@@ -1,6 +1,12 @@
 import { BarraDePesquisa, FiltroCustomizado, Hero } from "@/components";
+import { fetchCarros } from "@/utils";
 
-export default function Home() {
+export default async function Home() {
+  const todosOsCarros = await fetchCarros();
+
+  const isListaCarrosVazia =
+    !Array.isArray(todosOsCarros) || todosOsCarros.length < 1 || !todosOsCarros;
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -16,6 +22,17 @@ export default function Home() {
             <FiltroCustomizado title="ano" />
           </div>
         </div>
+        {!isListaCarrosVazia ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {todosOsCarros?.map((c) => (
+                <CardCarro carro={c} key={c.title} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <p>oops, deu erro</p>
+        )}
       </div>
     </main>
   );
