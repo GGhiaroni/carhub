@@ -1,7 +1,12 @@
 "use client";
 
+import { calcularValorAluguelCarro } from "@/utils";
+
 const CardCarro = ({ carro }) => {
-  const { city_mpg, year, make, model, transmission, drive } = carro;
+  const { year, make, model, transmission, drive } = carro;
+
+  const custoAluguel = calcularValorAluguelCarro(year);
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -9,8 +14,10 @@ const CardCarro = ({ carro }) => {
           {make} {model}
         </h2>
       </div>
-      <p>
-        <span>custo</span>
+      <p className="flex mt-6 text-[32px] font-extrabold">
+        <span className="self-start text-[14px] font-semibold">R$</span>
+        {custoAluguel}
+        <span className="self-end text-[14px] font-medium">/dia</span>
       </p>
     </div>
   );
