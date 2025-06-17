@@ -1,12 +1,16 @@
 "use client";
 
-import { calcularValorAluguelCarro } from "@/utils";
+import { calcularValorAluguelCarro, gerarNumeroAleatorio } from "@/utils";
 import Image from "next/image";
+import { useState } from "react";
+import { BotaoEstilizado } from ".";
 
 const CardCarro = ({ carro }) => {
   const { year, make, model, transmission, drive } = carro;
 
   const custoAluguel = calcularValorAluguelCarro(year);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="car-card group">
@@ -38,8 +42,32 @@ const CardCarro = ({ carro }) => {
               height={20}
               alt="ícone volante"
             />
-            <p className="text-[14px]"></p>
+            <p className="text-[14px]">
+              {transmission == "a" ? "Automático" : "Manual"}
+            </p>
           </div>
+
+          <div className="flex flex-col justify-center items-center gap-2 ">
+            <Image src="/tire.svg" width={20} height={20} alt="ícone roda" />
+            <p className="text-[14px]">
+              {drive == "fwd" ? "Tração Dianteira" : "Tração Traseira"}
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-2 ">
+            <Image src="/gas.svg" width={20} height={20} alt="ícone roda" />
+            <p className="text-[14px]">{gerarNumeroAleatorio()} km/l</p>
+          </div>
+        </div>
+
+        <div className="car-card__btn-container">
+          <BotaoEstilizado
+            titulo="Saiba mais"
+            estiloContainer="w-full py-[16px] rounded-full bg-primary-blue"
+            estiloTexto="text-white text-[14px] leading-[17px] font-bold"
+            iconeDireita="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+          />
         </div>
       </div>
     </div>
