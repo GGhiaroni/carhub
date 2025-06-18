@@ -42,7 +42,7 @@ const DetalhesDoCarro = ({ isOpen, closeModal, carro }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xsl transition-all flex flex-col gap-5">
+                <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
                   <button
                     type="button"
                     onClick={closeModal}
@@ -109,8 +109,10 @@ const DetalhesDoCarro = ({ isOpen, closeModal, carro }) => {
                             className="flex justify-between gap-5 w-full text-right"
                             key={key}
                           >
-                            <h4>{camposTraduzidos[key]}</h4>
-                            <p>
+                            <h4 className="text-grey">
+                              {camposTraduzidos[key]}
+                            </h4>
+                            <p className="text-black-100 font-medium">
                               {transformarPrimeiraLetraMaiuscula(
                                 traduzirValor(key, value)
                               )}
