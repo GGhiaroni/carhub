@@ -1,6 +1,11 @@
 "use client";
 
 import {
+  camposTraduzidos,
+  traduzirValor,
+  transformarPrimeiraLetraMaiuscula,
+} from "@/utils";
+import {
   Dialog,
   DialogPanel,
   Transition,
@@ -96,6 +101,23 @@ const DetalhesDoCarro = ({ isOpen, closeModal, carro }) => {
                     <h2 className="font-semibold text-xl capitalize">
                       {carro.make} {carro.model}
                     </h2>
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {Object.entries(carro)
+                        .filter(([key]) => key in camposTraduzidos)
+                        .map(([key, value]) => (
+                          <div
+                            className="flex justify-between gap-5 w-full text-right"
+                            key={key}
+                          >
+                            <h4>{camposTraduzidos[key]}</h4>
+                            <p>
+                              {transformarPrimeiraLetraMaiuscula(
+                                traduzirValor(key, value)
+                              )}
+                            </p>
+                          </div>
+                        ))}
+                    </div>
                   </div>
                 </DialogPanel>
               </TransitionChild>

@@ -32,3 +32,52 @@ export const gerarNumeroAleatorio = () => {
   const max = 30;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+export const camposTraduzidos = {
+  make: "Marca",
+  model: "Modelo",
+  transmission: "Transmissão",
+  year: "Ano",
+  class: "Classe",
+  cylinders: "Cilindros",
+  displacement: "Deslocamento",
+  drive: "Tração",
+  fuel_type: "Combustível",
+};
+
+const valoresTraduzidos = {
+  transmission: {
+    a: "Automático",
+    m: "Manual",
+  },
+  drive: {
+    fwd: "Dianteira",
+    rwd: "Traseira",
+    awd: "Integral",
+  },
+  fuel_type: {
+    gas: "Gasolina",
+    diesel: "Diesel",
+    electric: "Elétrico",
+    hybrid: "Híbrido",
+  },
+  class: {
+    "compact car": "Compacto",
+  },
+};
+
+export const traduzirValor = (chave, valorOriginal) => {
+  const traduzido = valoresTraduzidos[chave]?.[valorOriginal];
+  return traduzido ?? valorOriginal;
+};
+
+export const transformarPrimeiraLetraMaiuscula = (texto) => {
+  if (!texto || typeof texto !== "string") return texto;
+  return texto
+    .split(" ")
+    .map(
+      (palavra) =>
+        palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase()
+    )
+    .join(" ");
+};
