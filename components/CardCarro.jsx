@@ -3,7 +3,7 @@
 import { calcularValorAluguelCarro, gerarNumeroAleatorio } from "@/utils";
 import Image from "next/image";
 import { useState } from "react";
-import { BotaoEstilizado } from ".";
+import { BotaoEstilizado, DetalhesDoCarro } from ".";
 
 const CardCarro = ({ carro }) => {
   const { year, make, model, transmission, drive } = carro;
@@ -70,6 +70,11 @@ const CardCarro = ({ carro }) => {
           />
         </div>
       </div>
+      <DetalhesDoCarro
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        carro={carro}
+      />
     </div>
   );
 };
