@@ -5,7 +5,7 @@ export async function fetchCarros() {
   };
 
   const response = await fetch(
-    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=porsche",
     { headers: headers }
   );
 
@@ -83,7 +83,7 @@ export const transformarPrimeiraLetraMaiuscula = (texto) => {
 };
 
 export const gerarImagemCarroUrl = (carro, angle) => {
-  const url = new URL("https://cdn.imagin/studio/getimage");
+  const url = new URL("https://cdn.imagin.studio/getimage");
 
   const { make, year, model } = carro;
 

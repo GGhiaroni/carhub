@@ -1,6 +1,10 @@
 "use client";
 
-import { calcularValorAluguelCarro, gerarNumeroAleatorio } from "@/utils";
+import {
+  calcularValorAluguelCarro,
+  gerarImagemCarroUrl,
+  gerarNumeroAleatorio,
+} from "@/utils";
 import Image from "next/image";
 import { useState } from "react";
 import { BotaoEstilizado, DetalhesDoCarro } from ".";
@@ -26,7 +30,7 @@ const CardCarro = ({ carro }) => {
       </p>
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={gerarImagemCarroUrl(carro)}
           alt="modelo do carro"
           fill
           priority
