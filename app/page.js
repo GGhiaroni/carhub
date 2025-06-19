@@ -30,7 +30,7 @@ export default async function Home() {
         {!isListaCarrosVazia ? (
           <section>
             <div className="home__cars-wrapper">
-              {todosOsCarros?.map((c) => (
+              {todosOsCarros?.map((c, key) => (
                 <CardCarro carro={c} key={c.title} />
               ))}
             </div>

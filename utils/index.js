@@ -5,7 +5,7 @@ export async function fetchCarros() {
   };
 
   const response = await fetch(
-    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=porsche",
+    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
     { headers: headers }
   );
 
@@ -87,12 +87,15 @@ export const gerarImagemCarroUrl = (carro, angle) => {
 
   const { make, year, model } = carro;
 
-  url.searchParams.append("customer", "hrjavascript-mastery");
+  url.searchParams.append("customer", "img");
   url.searchParams.append("make", make);
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("zoomType", "fullscreen");
   url.searchParams.append("modelYear", `${year}`);
-  url.searchParams.append("angle", `${angle}`);
+
+  if (angle) {
+    url.searchParams.append("angle", angle);
+  }
 
   return `${url}`;
 };
