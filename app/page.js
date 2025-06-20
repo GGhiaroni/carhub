@@ -6,8 +6,13 @@ import {
 } from "@/components";
 import { fetchCarros } from "@/utils";
 
-export default async function Home() {
-  const todosOsCarros = await fetchCarros();
+export default async function Home({ searchParams }) {
+  const todosOsCarros = await fetchCarros({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || "",
+    model: searchParams.model || "",
+  });
 
   const isListaCarrosVazia =
     !Array.isArray(todosOsCarros) || todosOsCarros.length < 1 || !todosOsCarros;

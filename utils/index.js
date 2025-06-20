@@ -1,17 +1,40 @@
-export async function fetchCarros() {
+export async function fetchCarros(filtros) {
+  const { manufacturer, year, fuel, model } = filtros;
+
   const headers = {
     "x-rapidapi-key": "f9fb169dfdmshbb09a40a4ce2292p1be1f6jsn8b15f2be40b0",
     "x-rapidapi-host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 
-  const response = await fetch(
-    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3",
-    { headers: headers }
-  );
+  try {
+    const response = await fetch(
+      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&fuel_type=${fuel}`,
+      { headers: headers }
+    );
 
-  const data = response.json();
+    //
+    if (!response.ok) {
+      const errorData = await response.text();
+      console.error(
+        `Erro na requisição à API: Status ${response.status}, Mensagem: ${errorData}`
+      );
+      return [];
+    }
 
-  return data;
+    const data = await response.json();
+
+    console.log("Dados recebidos da API:", data);
+
+    if (!Array.isArray(data)) {
+      console.error("A API não retornou um array. Formato inesperado:", data);
+      return [];
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Ocorreu um erro ao buscar carros:", error);
+    return []; // Retorne um array vazio em caso de erro na requisição ou parsing
+  }
 }
 
 export const calcularValorAluguelCarro = (year) => {
