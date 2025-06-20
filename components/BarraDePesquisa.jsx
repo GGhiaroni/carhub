@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
 import { BuscarFabricantes } from ".";
 
 const BarraDePesquisa = () => {
@@ -22,6 +23,12 @@ const BarraDePesquisa = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    if (fabricante === "" && modelo === "") {
+      return toast.warning(
+        "Por favor, preencha os campos da barra de pesquisa!"
+      );
+    }
   };
 
   return (

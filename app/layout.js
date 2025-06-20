@@ -6,12 +6,15 @@ export const metadata = {
   description: "Encontre o seu próximo carro.",
 };
 
+import { Toaster } from "sonner";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body className="relative">
         <Navbar />
         {children}
+        <Toaster richColors />
         <Footer />
       </body>
     </html>
