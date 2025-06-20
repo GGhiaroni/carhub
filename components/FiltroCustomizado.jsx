@@ -35,7 +35,15 @@ const FiltroCustomizado = ({ titulo, opcoes }) => {
             >
               <ListboxOptions className="custom-filter__options">
                 {opcoes.map((opcao, key) => (
-                  <ListboxOption key={key}>
+                  <ListboxOption
+                    key={key}
+                    value={opcao}
+                    className={({ focus }) =>
+                      `relative cursor-default select-none py-2 px-4 ${
+                        focus ? "bg-primary-blue text-white" : "text-grey-900"
+                      }`
+                    }
+                  >
                     {({ selecionado }) => <span>{opcao.titulo}</span>}
                   </ListboxOption>
                 ))}
