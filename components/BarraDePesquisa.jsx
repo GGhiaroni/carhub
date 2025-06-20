@@ -20,7 +20,9 @@ const BarraDePesquisa = () => {
     </button>
   );
 
-  const handleSearch = () => {};
+  const handleSearch = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
