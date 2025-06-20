@@ -42,7 +42,7 @@ export const fabricantes = [
   "Volvo",
 ];
 
-export const anos = [
+export const anosDeFabricacao = [
   { title: "Year", value: "" },
   { title: "2015", value: "2015" },
   { title: "2016", value: "2016" },
@@ -57,16 +57,16 @@ export const anos = [
 
 export const combustivel = [
   {
-    title: "Fuel",
+    title: "Combustível",
     value: "",
   },
   {
-    title: "Gas",
-    value: "Gas",
+    title: "Gasolina",
+    value: "Gasolina",
   },
   {
-    title: "Electricity",
-    value: "Electricity",
+    title: "Elétrico",
+    value: "Elétrico",
   },
 ];
 

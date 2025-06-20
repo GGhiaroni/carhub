@@ -4,6 +4,7 @@ import {
   FiltroCustomizado,
   Hero,
 } from "@/components";
+import { anosDeFabricacao, combustivel } from "@/constants";
 import { fetchCarros } from "@/utils";
 
 export default async function Home({ searchParams }) {
@@ -28,8 +29,11 @@ export default async function Home({ searchParams }) {
         <div className="home__filters">
           <BarraDePesquisa />
           <div className="home__filter-container">
-            <FiltroCustomizado title="tipo de combustível" />
-            <FiltroCustomizado title="ano" />
+            <FiltroCustomizado
+              titulo="tipo de combustível"
+              opcoes={combustivel}
+            />
+            <FiltroCustomizado titulo="ano" opcoes={anosDeFabricacao} />
           </div>
         </div>
         {!isListaCarrosVazia ? (
