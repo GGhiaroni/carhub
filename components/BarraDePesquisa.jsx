@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { BuscarFabricantes } from ".";
@@ -8,6 +9,7 @@ import { BuscarFabricantes } from ".";
 const BarraDePesquisa = () => {
   const [fabricante, setFabricante] = useState("");
   const [modelo, setModelo] = useState("");
+  const router = useRouter();
 
   const SearchButton = ({ outrasClasses }) => (
     <button type="submit" className={`-ml-3 z-100 ${outrasClasses}`}>
@@ -29,6 +31,30 @@ const BarraDePesquisa = () => {
         "Por favor, preencha os campos da barra de pesquisa!"
       );
     }
+
+    atualizarSearchParams(modelo.toLowerCase(), fabricante.toLowerCase());
+  };
+
+  const atualizarSearchParams = (modelo, fabricante) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (modelo) {
+      searchParams.set("model", modelo);
+    } else {
+      searchParams.delete("model");
+    }
+
+    if (fabricante) {
+      searchParams.set("manufacturer", fabricante);
+    } else {
+      searchParams.delete("manufacturer");
+    }
+
+    const novoCaminhoUrl = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(novoCaminhoUrl);
   };
 
   return (
