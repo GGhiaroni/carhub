@@ -54,7 +54,7 @@ const BarraDePesquisa = () => {
       window.location.pathname
     }?${searchParams.toString()}`;
 
-    router.push(novoCaminhoUrl);
+    router.push(novoCaminhoUrl, { scroll: false });
   };
 
   return (
