@@ -51,13 +51,13 @@ const BuscarFabricantes = ({ fabricante, setFabricante }) => {
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <ComboboxOptions>
+            <ComboboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50">
               {fabricantesFiltrados.map((item) => (
                 <ComboboxOption
                   key={item}
-                  className={({ active }) => `
-                                  relative search__manufacturer-option ${
-                                    active
+                  className={({ focus }) => `
+                                  relative search__manufacturer-option py-2 px-4 ${
+                                    focus
                                       ? "bg-primary-blue text-white"
                                       : "text-gray-900"
                                   }
