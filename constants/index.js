@@ -43,29 +43,29 @@ export const fabricantes = [
 ];
 
 export const anosDeFabricacao = [
-  { title: "Year", value: "" },
-  { title: "2015", value: "2015" },
-  { title: "2016", value: "2016" },
-  { title: "2017", value: "2017" },
-  { title: "2018", value: "2018" },
-  { title: "2019", value: "2019" },
-  { title: "2020", value: "2020" },
-  { title: "2021", value: "2021" },
-  { title: "2022", value: "2022" },
-  { title: "2023", value: "2023" },
+  { titulo: "Ano Fabricação", value: "" },
+  { titulo: "2015", value: "2015" },
+  { titulo: "2016", value: "2016" },
+  { titulo: "2017", value: "2017" },
+  { titulo: "2018", value: "2018" },
+  { titulo: "2019", value: "2019" },
+  { titulo: "2020", value: "2020" },
+  { titulo: "2021", value: "2021" },
+  { titulo: "2022", value: "2022" },
+  { titulo: "2023", value: "2023" },
 ];
 
 export const combustivel = [
   {
-    title: "Combustível",
+    titulo: "Combustível",
     value: "",
   },
   {
-    title: "Gasolina",
+    titulo: "Gasolina",
     value: "Gasolina",
   },
   {
-    title: "Elétrico",
+    titulo: "Elétrico",
     value: "Elétrico",
   },
 ];
