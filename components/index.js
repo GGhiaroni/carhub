@@ -6,6 +6,7 @@ import DetalhesDoCarro from "./DetalhesDoCarro";
 import FiltroCustomizado from "./FiltroCustomizado";
 import Footer from "./Footer";
 import Hero from "./Hero";
+import MostrarMais from "./MostrarMais";
 import Navbar from "./Navbar";
 
 export {
@@ -17,5 +18,6 @@ export {
   FiltroCustomizado,
   Footer,
   Hero,
+  MostrarMais,
   Navbar,
 };

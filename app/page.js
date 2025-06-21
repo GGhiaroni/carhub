@@ -3,6 +3,7 @@ import {
   CardCarro,
   FiltroCustomizado,
   Hero,
+  MostrarMais,
 } from "@/components";
 import { anosDeFabricacao, combustivel } from "@/constants";
 import { fetchCarros } from "@/utils";
@@ -12,6 +13,7 @@ export default async function Home({ searchParams }) {
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
     model: searchParams.model || "",
   });
 
@@ -45,9 +47,14 @@ export default async function Home({ searchParams }) {
           <section>
             <div className="home__cars-wrapper">
               {todosOsCarros?.map((c, key) => (
-                <CardCarro carro={c} key={c.title} />
+                <CardCarro carro={c} key={key} />
               ))}
             </div>
+
+            <MostrarMais
+              numeroPagina={(searchParams.pageNumber || 10) / 10}
+              isNext={(searchParams.limit || 10) > todosOsCarros.length}
+            />
           </section>
         ) : (
           <p>oops, deu erro</p>
