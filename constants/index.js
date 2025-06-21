@@ -62,11 +62,11 @@ export const combustivel = [
   },
   {
     titulo: "Gasolina",
-    value: "Gasolina",
+    value: "Gas",
   },
   {
     titulo: "Elétrico",
-    value: "Elétrico",
+    value: "Electricity",
   },
 ];
 

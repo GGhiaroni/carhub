@@ -31,9 +31,14 @@ export default async function Home({ searchParams }) {
           <div className="home__filter-container">
             <FiltroCustomizado
               titulo="tipo de combustível"
+              parametro="fuel"
               opcoes={combustivel}
             />
-            <FiltroCustomizado titulo="ano" opcoes={anosDeFabricacao} />
+            <FiltroCustomizado
+              titulo="ano"
+              parametro="year"
+              opcoes={anosDeFabricacao}
+            />
           </div>
         </div>
         {!isListaCarrosVazia ? (

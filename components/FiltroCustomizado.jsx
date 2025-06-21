@@ -1,5 +1,6 @@
 "use client";
 
+import { atualizarSearchParams } from "@/utils";
 import {
   Listbox,
   ListboxButton,
@@ -8,15 +9,31 @@ import {
   Transition,
 } from "@headlessui/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 
-const FiltroCustomizado = ({ titulo, opcoes }) => {
+const FiltroCustomizado = ({ titulo, opcoes, parametro }) => {
   const [selecionado, setSelecionado] = useState(opcoes[0]);
+  const router = useRouter();
+
+  const handleAtualizacaoParametros = (valorSelecionado) => {
+    const novoCaminho = atualizarSearchParams(
+      parametro,
+      valorSelecionado.value
+    );
+    router.push(novoCaminho, { scroll: false });
+  };
 
   return (
     <div>
       <div className="w-fit">
-        <Listbox value={selecionado} onChange={(e) => setSelecionado(e)}>
+        <Listbox
+          value={selecionado}
+          onChange={(e) => {
+            setSelecionado(e);
+            handleAtualizacaoParametros(e);
+          }}
+        >
           <div className="relative w-fit z-10">
             <ListboxButton className="custom-filter__btn">
               <span className="block truncate">{selecionado.titulo}</span>
