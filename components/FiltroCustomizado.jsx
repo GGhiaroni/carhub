@@ -12,6 +12,7 @@ import { Fragment, useState } from "react";
 
 const FiltroCustomizado = ({ titulo, opcoes }) => {
   const [selecionado, setSelecionado] = useState(opcoes[0]);
+
   return (
     <div>
       <div className="w-fit">
@@ -44,7 +45,15 @@ const FiltroCustomizado = ({ titulo, opcoes }) => {
                       }`
                     }
                   >
-                    {({ selecionado }) => <span>{opcao.titulo}</span>}
+                    {({ selecionado }) => (
+                      <span
+                        className={`block truncate ${
+                          selecionado ? "font-medium" : "font-normal"
+                        }`}
+                      >
+                        {opcao.titulo}
+                      </span>
+                    )}
                   </ListboxOption>
                 ))}
               </ListboxOptions>

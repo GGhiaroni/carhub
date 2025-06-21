@@ -33,7 +33,7 @@ export async function fetchCarros(filtros) {
     return data;
   } catch (error) {
     console.error("Ocorreu um erro ao buscar carros:", error);
-    return []; // Retorne um array vazio em caso de erro na requisição ou parsing
+    return [];
   }
 }
 
@@ -121,4 +121,16 @@ export const gerarImagemCarroUrl = (carro, angle) => {
   }
 
   return `${url}`;
+};
+
+export const atualizarSearchParams = (tipo, valor) => {
+  const searchParams = new URLSearchParams(window.location.search);
+
+  searchParams.set(tipo, valor);
+
+  const novoCaminhoUrl = `${
+    window.location.pathname
+  }?${searchParams.toString()}`;
+
+  return novoCaminhoUrl;
 };
