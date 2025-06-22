@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata = {
   title: "CarHub",
   description: "Encontre o seu próximo carro.",
+  icons: {
+    icon: "/car-logo.svg",
+  },
 };
 
 import { Toaster } from "sonner";
