@@ -52,7 +52,7 @@ export default async function Home({ searchParams }) {
             </div>
 
             <MostrarMais
-              numeroPagina={(searchParams.pageNumber || 10) / 10}
+              numeroPagina={(searchParams.limit || 10) / 10}
               isNext={(searchParams.limit || 10) > todosOsCarros.length}
             />
           </section>
